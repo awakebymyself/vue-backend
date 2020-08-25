@@ -71,8 +71,8 @@ export default {
       // 获取用户列表参数对象
       queryInfo: {
         queryString: "",
-        pageIndex: 0, //当前页码
-        pageSize: 0
+        pageIndex: 1, //当前页码
+        pageSize: 10
       },
       userList: [],
       total: 0,
