@@ -12,7 +12,17 @@ import {
     menu,
     submenu,
     menuItemGroup,
-    menuItem
+    menuItem,
+    breadcrumbItem,
+    breadcrumb,
+    card,
+    row,
+    col,
+    table,
+    tableColumn,
+    tooltip,
+    pagination
+
 } from 'element-ui'
 
 Vue.use(Button)
@@ -28,8 +38,15 @@ Vue.use(menu)
 Vue.use(submenu)
 Vue.use(menuItemGroup)
 Vue.use(menuItem)
+Vue.use(breadcrumbItem)
+Vue.use(breadcrumb)
+Vue.use(card)
+Vue.use(row)
+Vue.use(col)
+Vue.use(table)
+Vue.use(tableColumn)
+Vue.use(tooltip)
+Vue.use(pagination)
 
 
 Vue.prototype.$message = Message
-
-

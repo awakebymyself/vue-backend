@@ -16,7 +16,7 @@
         <div class="toggle-button" @click="toggleColl">|||</div>
 
         <!-- 侧边栏菜单区域 -->
-        <el-menu background-color="#333744" text-color="#fff" active-text-color="#ffd04b" router>
+        <el-menu background-color="#333744" text-color="#fff" active-text-color="#ffd04b" router :default-active="activePath">
           <!-- 一级菜单 -->
           <el-submenu :index="item.id + ' '" v-for="item in menuList" :key="item.id">
             <!-- 一级菜单模板区域 -->
@@ -30,7 +30,7 @@
             <el-menu-item
               :index="'/' + subItem.path"
               v-for="subItem in item.children"
-              :key="subItem.id"
+              :key="subItem.id" @click="saveClickState('/' + subItem.path)"
             >
               <template slot="title">
                 <!-- 图标 -->
@@ -58,12 +58,14 @@ export default {
   data() {
     return {
       menuList: [],
+      activePath: ''
     };
   },
 
   created() {
     // 创建生命周期函数， 获取菜单权限
     this.getMenuList();
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
 
   methods: {
@@ -83,6 +85,10 @@ export default {
     toggleColl() {
         
 
+    },
+    saveClickState(activePath) {
+      window.sessionStorage.setItem('activePath', activePath);
+      this.activePath = activePath;
     }
   },
 };
